@@ -1,0 +1,82 @@
+.demo-card-wide.mdl-card {
+    width: auto;
+    margin: 0 auto;   
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #17202A;
+    height: auto;
+    /* background: url('..//images/background_one.jpg') center / cover; */
+    background-color: rgba(128, 0, 128, 0.74);
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #17202A;
+  }
+
+  #addnew{
+    background-color: Transparent;
+    border: none;
+    color: #2020FF;  
+  }
+  #addnew:hover{
+    text-decoration: underline;
+  }
+  /* .page-content{
+      padding-left: 10%;
+  } */
+
+  .page-content{
+    justify-content: center;
+    align-items: center;
+  }
+
+  #cclass{
+    margin:0 auto;
+    padding-block-end: 2%;
+  }
+
+/* #ctable{
+  margin: auto;
+} */
+
+.demo-layout-transparent {
+  /* background: url('../images/background_two.jpg') center / cover; */
+  background-color: white;
+}
+
+.demo-layout-transparent:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(248, 247, 216, 0.7);
+}
+
+.mdl-layout__drawer-button{
+  color: rgb(32, 8, 248);
+}
+
+/* mdl-layout__drawer{
+  background-color: turquoise;
+} */
+
+.mdc-typography-styles-headline1 {
+  font-family: "Arial, Helvetica, sans-serif";
+};
+  
+
+.mdc-typography-styles-headline2{
+  font-family: "Arial, Helvetica, sans-serif";
+};
+
+/* .mdl-grid{
+  margin: 0 auto;
+} */
+
+/* body {
+  padding: 20px 0 0;
+  background: #fafafa;
+  position: relative;
+} */
+
