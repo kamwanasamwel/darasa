@@ -11,6 +11,9 @@ firebase.initializeApp(config);
 
 var firestore = firebase.firestore();
 
+// var settings = { timestampsInSnapshots: true }; 
+//    firestore.settings(settings);
+
 // authentication
 var user = firebase.auth().currentUser;
 function authenticate(){
@@ -37,23 +40,28 @@ function authenticate(){
 //   uid = user.uid; 
 //   console.log(uid);
 // }
-var rclst = document.getElementById('clst');
-firestore.collection("LecTeachTime").where("lecid", "==", "bhmsGO4GadUoc85r8q05xWGbLn93")
-        .get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
-                console.log("After Lec Teach data:", doc.data());
-                rclst.innerHTML += "<option>"+ doc.data().time +"</option>"
-                
-            });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
 
-// adding classes
+// class time
+var rclst = document.getElementById('clst');
+
+// full statement to get user id: firebase.auth().currentUser.uid
+firestore.collection("LecTeachTime").where("lecid", "==", "bhmsGO4GadUoc85r8q05xWGbLn93")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            // console.log(doc.id, " => ", doc.data());
+            console.log("After Lec Teach data:", doc.data());
+            console.log("once again", doc.data().lecid);
+            rclst.innerHTML += "<option>"+ doc.data().time +"</option>"
+            
+        });
+    })
+  .catch(function(error) {
+      console.log("Error getting documents: ", error);
+  });
+
+// on click listener
 document.getElementById('AttendData').addEventListener('submit', submitForm);
 
 function inputVal(id){
@@ -67,9 +75,10 @@ function submitForm(e){
   e.preventDefault();
   // var user = firebase.auth().currentUser;
   var ryear = inputVal('yer');
-  var rcourse = inputVal('course');
-  var rsem = inputVal('semester');
-  var rcode = inputVal('code');
+  // var rcourse = inputVal('course');
+  // var rsem = inputVal('semester');
+  let rsem = document.querySelector('semester');
+  // var rcode = inputVal('code');
   
 
   var user = firebase.auth().currentUser;  
@@ -77,40 +86,57 @@ function submitForm(e){
   var usid = user.uid;
   var dclasstime;
   var dscanid;
+  var StudId;
   
+  
+  // console.log("Ultimate test", firebase.auth().currentUser.uid);
   // compare values;
-  firestore.collection("LecTeachTime").where("lecid", "==", "usid")
-        .get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
-                console.log("After Lec Teach data:", doc.data());
-                // rclst.innerHTML += "<option disabled selected value> -- select an option -- </option><option>"+ doc.data().time +"</option>"
-                
-            });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
-  firestore.collection("StudentScanClass").where("semester", "==", "rsem").where("year", "==", "ryear")
+  firestore.collection("StudentScanClass").where("semester", "==", document.getElementById('semester').value )
+  .where("year", "==", document.getElementById('yer').value ) 
   .get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
-      
+        // .where("date", ">=", moment().format(document.getElementById('clst').value ))
         console.log("Scan data:", doc.data());
         dclasstime = doc.data().classtime;
         dscanid = doc.id;
+        StudId = doc.data().studentid;
         console.log(dclasstime);
         console.log(dscanid);
-        
+        console.log(StudId);
         // query two
         // .where("doc().id", "array-contains", "2ioLaiqDk7HbkXkTMc5x")
+        // end query two 
+        // 'StudentScanClassId.' + 'studentid', "==", true
         
-        // end query two
     });
-  });   
+  }).then(function(StudId){
+    firestore.collection("StudentDetails")
+      .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              // doc.data() is never undefined for query doc snapshots
+              // console.log(doc.id, " => ", doc.data());
+              console.log("On Student Details data:", doc.data());
+              
+          });
+      })
+  });
+  // firestore.collection("StudentDetails").where("doc.id","==","Scan.studentid")
+  //     .get()
+  //     .then(function(querySnapshot) {
+  //         querySnapshot.forEach(function(doc) {
+  //             // doc.data() is never undefined for query doc snapshots
+  //             // console.log(doc.id, " => ", doc.data());
+  //             console.log("On Student Details data:", doc.data());
+              
+  //         });
+  //     })
+  //   .catch(function(error) {
+  //       console.log("Error getting documents: ", error);
+  //   });  
+  //   console.log("return output", Scans);
   
-  
+
 
 }
 
