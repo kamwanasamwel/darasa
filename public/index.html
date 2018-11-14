@@ -25,8 +25,8 @@
             $("#bclass").click(function(){
                 $("#cclass").hide();
             });
-            $("#btable").click(function(){
-                $("#ctable").hide();
+            $("#bpdfclass").click(function(){
+                $("#pdfclass").hide();
             });
         });
     </script>
@@ -117,7 +117,7 @@
                                                     
                                                 </select>
                                             </p><br> 
-                                            
+
                                             <!--<p id="single">Course: 
                                                 <select type="text" value="" class="mdl-textfield__input" name="course" id="course">
                                                     <option disabled selected value> -- select an option -- </option>
@@ -157,23 +157,96 @@
                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-phone mdl-cell--8-col-tablet" >
                     <div class="demo-card-wide mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp " id="pdfclass">
                             <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text"><b>Attendance</b> &nbsp;As PDF</h2>
+                                <h2 class="mdl-card__title-text"><b>Class List</b> &nbsp;Generator</h2>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <!--add pdf content here-->
+                                <form name="fclass" action="#" method="post" id="ListData">                                           
+                                    <p>Current Year: 
+                                        <select type="text" value="" class="mdl-textfield__input" name="studyYear" id="cyear">
+                                            <option disabled selected value> -- select an option -- </option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                        </select>
+                                    </p><br>
+                                    
+                                    <p>Semester:
+                                        <select type="text" value="" class="mdl-textfield__input" name="semester" id="csemester">
+                                            <option disabled selected value> -- select an option -- </option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </p><br> 
+                                    <p>Course: 
+                                        <select type="text" value="" class="mdl-textfield__input" name="Code" id="ccourse">
+                                            <option disabled selected value> -- select an option -- </option>
+                                            
+                                        </select>
+                                    </p><br> 
+
+                                    <!--<p id="single">Course: 
+                                        <select type="text" value="" class="mdl-textfield__input" name="course" id="course">
+                                            <option disabled selected value> -- select an option -- </option>
+                                            <option>Bs of Business Information Technology</option>
+                                            
+                                        </select>
+                                    </p><br>
+                                    <p>Unit Code: 
+                                        <select type="text" value="" class="mdl-textfield__input" name="Code" id="code">
+                                            <option disabled selected value> -- select an option -- </option>
+                                            <option>FDS 545H</option>
+                                            <option>BIT 213</option>
+                                            <option>CCS 2303</option>
+                                        </select>
+                                    </p><br> -->
                                 
+                                <p> <button type="submit" name="csave" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Generate</button>
+     
+                                </p>   
+                            </form>
                             </div>
                             
                             <div class="mdl-card__actions mdl-card--border">
                                 
                             </div>
                             <div class="mdl-card__menu">
-                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="btable">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="bpdfclass">
                                 <i class="material-icons">cancel</i>
                                 </button>
                             </div>
                         </div>
             </div>
+
+
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-phone mdl-cell--8-col-tablet" >
+                <div class="demo-card-wide mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp " id="pdfclass">
+                        
+                        <div class="mdl-card__supporting-text" id="content">
+                            <!--add pdf content here-->
+                            <h1><b>Dedan Kimathi University Of Science and Technology</b> </h1>
+                            <h2>Class List</h2>
+                            <table id="dispdata" border="1">
+                                <tr>
+                                   <th>Reg No</th>
+                                   <th>First Name</th>
+                                   <th>Second Name</th> 
+                                   <th>Sign</th>
+                                   <th>Sign</th>
+                                   <th>Sign</th>
+                                   <th>Sign</th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div id="editor"></div>
+                        
+                        <div class="mdl-card__actions mdl-card--border">
+                            
+                        </div>
+                        
+                    </div>
+        </div>
             <!-- Your content goes here -->
 
 

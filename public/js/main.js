@@ -11,8 +11,8 @@ firebase.initializeApp(config);
 
 var firestore = firebase.firestore();
 
-// var settings = { timestampsInSnapshots: true }; 
-//    firestore.settings(settings);
+var settings = { timestampsInSnapshots: true }; 
+   firestore.settings(settings);
 
 // authentication
 var user = firebase.auth().currentUser;
@@ -138,48 +138,99 @@ function submitForm(e){
   
 
 
+
 }
 
 
-// adding courses if missing
+// generation of class list
+// list courses on the dropdown
 
-var dialog = document.querySelector('dialog');
-    var showModalButton = document.querySelector('#addnew');
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    // showModalButton.addEventListener('click', function() {
-    //   dialog.showModal();
-    // });
-    dialog.querySelector('.close').addEventListener('click', function() {
-      dialog.close();
-    });
+  var dcourse = document.getElementById('ccourse');
+  var crsRef = firestore.collection("DkutCourses").doc("dkut");
 
+  crsRef.get().then(function(doc) {
+      if (doc.exists) {
+        var i;
+        for (i = 1; i < 25; i++) { 
+          dcourse.innerHTML += "<option>"+ doc.data()[i] +"</option>"; 
+        }
+        // dcourse.innerHTML += "<option>"+ doc.data() +"</option>";
+          console.log("Document data:", doc.data());
+          console.log("the length is:", doc.length);
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+  }).catch(function(error) {
+      console.log("Error getting document:", error);
+  });
 
-
-
-
-// var dcourse = document.getElementById('course');
-// var cors = firestore.collection("DkutCourses").doc("dkut");
-
-
-// var crsRef = firestore.collection("DkutCourses").doc("dkut");
-
-// crsRef.get().then(function(doc) {
-//     if (doc.exists) {
-//       var i;
-//       for (i = 1; i < 9; i++) { 
-//          dcourse.innerHTML += "<li><option>"+ doc.data()[i] +"</option></li>"; 
-//       }
-      
-//         // console.log("Document data:", doc.data());
-//     } else {
-//         // doc.data() will be undefined in this case
-//         console.log("No such document!");
-//     }
-// }).catch(function(error) {
-//     console.log("Error getting document:", error);
+//   firestore.collection("DkutCourses").doc("dkut").get().then(function(querySnapshot) {      
+//     console.log(querySnapshot.doc.length); 
 // });
+  // firestore.collection("DkutCourses").doc("dkut").get().then(function(querySnapshot) {
+  //     querySnapshot.forEach(function(doc) {
+  //         // rtunit.innerHTML = "<h2 class='color-white'>" + querySnapshot.size +
+  //         //     "</h2> <p class='m-b-0'>Units Taught</p>";
+  //         console.log(querySnapshot.size);
+  //     });
+  // });
+  // firestore.collection("DkutCourses").doc("dkut")
+  //   .get()
+  //   .then(function(querySnapshot) {
+  //       querySnapshot.forEach(function(doc) {
+  //           // doc.data() is never undefined for query doc snapshots
+  //           // console.log(doc.id, " => ", doc.data());
+  //           console.log("After Lec Teach data:", doc.data());
+  //           dcourse.innerHTML += "<option>"+ doc.data() +"</option>"
+            
+  //       });
+  //   })
+  // .catch(function(error) {
+  //     console.log("Error getting documents: ", error);
+  // });
+
+// query from student details
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+var printpdf = document.getElementById('dispdata');
+  document.getElementById('ListData').addEventListener('submit', ClassList);
+  function ClassList(e){
+    e.preventDefault();
+    firestore.collection("StudentDetails").where("currentyear","==",document.getElementById('cyear').value).where("currentsemester","==",document.getElementById('csemester').value).where("course","==",document.getElementById('ccourse').value)
+      .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              // doc.data() is never undefined for query doc snapshots
+              // console.log(doc.id, " => ", doc.data());
+              printpdf.innerHTML += "<tr><td>"+ doc.data().regnumber +"</td><td>"+ doc.data().firstname +"</td><td>"+ doc.data().lastname +"</td><td></td><td></td><td></td><td></td></tr>";
+              console.log("On Student Details data:", doc.data());
+              console.log("On Student Details data:", doc.data().lastname);
+              
+          });
+          return doc.data();
+      })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });  
+    doc.fromHTML($('#content').html(), 15, 15, {
+      'width': 230,
+          'elementHandlers': specialElementHandlers
+  });
+  doc.save();
+  }
+    
+
+ 
+// generate pdf print out
+
+
+
 
 
 
