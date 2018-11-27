@@ -36,10 +36,8 @@ var user = firebase.auth().currentUser;
 //     console.log("Error getting document:", error);
 // });
 
-var coyear = document.getElementById('cyear');
-var cosem = document.getElementById('csem');
-var cocourse = document.getElementById('ccourse');
-var coyos = document.getElementById('cyos');
+var todata = document.getElementById('tdata');
+var nos = 0;
 
 document.getElementById('clslist').addEventListener('submit', ClassList);
 function ClassList(e){
@@ -48,7 +46,9 @@ function ClassList(e){
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
+            nos ++;
             // doc.data() is never undefined for query doc snapshots
+            todata.innerHTML += "<tr></tr><th scope='row'>"+nos+"</th> <td> "+doc.data().regnumber+" </td> <td> "+doc.data().firstname+" </td> <td> "+doc.data().lastname+" </td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
             console.log(doc.id, " => ", doc.data());
         });
     })

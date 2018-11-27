@@ -111,32 +111,32 @@ CTA
 			 Simply fill in the required details and press generate. Preview the attendance list on the table below and then download or print.
 		</p>
 	</div>
-	<form>
+	<form id="clsattd">
         <div class="form-group">
-            <label class="form-check-label" for="cyear">Current Year</label>
-            <select name="currentyear" class="form-control input-round" id="cyear" >
+            <label class="form-check-label" for="coyear">Current Year</label>
+            <select name="currentyear" class="form-control input-round" id="coyear" >
                 <option disabled selected value> -- select an option -- </option>
                 <option>2018</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-check-label" for="csem">Current Semester</label>
-            <select name="currentsemester" class="form-control input-round" id="csem" >
+            <label class="form-check-label" for="cosem">Current Semester</label>
+            <select name="currentsemester" class="form-control input-round" id="cosem" >
                 <option disabled selected value> -- select an option -- </option>
                 <option>1</option>
                 <option>2</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-check-label" for="ccourse">Course</label>
-            <select name="coursechoice" class="form-control input-round" id="ccourse" >
+            <label class="form-check-label" for="cocourse">Course</label>
+            <select name="coursechoice" class="form-control input-round" id="cocourse" >
                 <option disabled selected value> -- select an option -- </option>
-                <option>BBIT</option>
+                <option>Bs of Business Information Technology</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-check-label" for="cyos">Year Of Study</label>
-            <select name="coursechoice" class="form-control input-round" id="cyos" >
+            <label class="form-check-label" for="coyos">Year Of Study</label>
+            <select name="coursechoice" class="form-control input-round" id="coyos" >
                 <option disabled selected value> -- select an option -- </option>
                 <option>1</option>
                 <option>2</option>
@@ -164,34 +164,18 @@ CTA
         <tr>
             <th scope="col"> #</th>
             <th scope="col">Reg Number</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Student Name</th>
             
             
         </tr>
         </thead>
-        <tbody>
-        <tr>
+        <tbody id="attdlist">
+        <!-- <tr > 
             <th scope="row"> 1	</th>
             <td> Mark </td>
             <td> Otto </td>
-            <td> @mdo </td>
             
-        </tr>
-        <tr>
-            <th scope="row"> 2	</th>
-            <td> Jacob	  </td>
-            <td> Thornton </td>
-            <td> @fat     </td>
-            
-        </tr>
-        <tr>
-            <th scope="row"> 3	</th>
-            <td> Larry    </td>
-            <td> the Bird </td>
-            <td> @twitter </td>
-           
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 </div>
@@ -225,6 +209,7 @@ JAVASCRIPTS
 <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
 <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
 <script src="./assets/js/functions.js" type="text/javascript"></script>
+<script src="./assets/js/attend.js"></script>
     
 <!-- Animation -->
 <script src="./assets/js/vendor/aos.js" type="text/javascript"></script>
