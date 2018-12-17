@@ -55,7 +55,7 @@ NAVBAR
 --------------------------------------->
 <nav class="topnav navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 <div class="container">
-	<a class="navbar-brand" href="#"><i class="fas fa-anchor mr-2"></i><strong>Darasa</strong> </a>
+	<a class="navbar-brand" href="#"><img src="assets/img/f.png" class="rounded" style="height:35px; width:35px;"><strong>Darasa</strong> </a>
 	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
     </button>
@@ -135,8 +135,16 @@ CTA
             </select>
         </div>
         <div class="form-group">
+                <label class="form-check-label" for="counit">Unit Name</label>
+                <select name="nameofunit" class="form-control input-round" id="counit" >
+                    <option disabled selected value> -- select an option -- </option>
+                    <option>Project Management </option>
+                    <option>Physics</option>
+                </select>
+            </div>
+        <div class="form-group">
             <label class="form-check-label" for="coyos">Year Of Study</label>
-            <select name="coursechoice" class="form-control input-round" id="coyos" >
+            <select name="yearofstudy" class="form-control input-round" id="coyos" >
                 <option disabled selected value> -- select an option -- </option>
                 <option>1</option>
                 <option>2</option>
@@ -157,9 +165,14 @@ CTA
 <!-- End CTA -->
 
 <div id="ptable">
+    <div id="titles" class="text-center pt-3 pb-4">
+        <!-- <h2>Dedan Kimathi University of Science and Technology</h2>
+        <h4>Course: BBIT Year: 3 Semester: 2</h4>
+        <h4>Attendance Sheet</h4> -->
+	</div>
     <!-- table -->
     <table class="table" border="1">
-        <legend style="text-align:center;"><b>Dedan Kimathi University of science and Technology </b><br/> Class Attendance List</legend>
+        <!-- <legend style="text-align:center;"><b>Dedan Kimathi University of science and Technology </b><br/> Class Attendance List</legend> -->
         <thead class="thead-light">
         <tr>
             <th scope="col"> #</th>

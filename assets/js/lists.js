@@ -35,13 +35,15 @@ var user = firebase.auth().currentUser;
 // }).catch(function(error) {
 //     console.log("Error getting document:", error);
 // });
-
+var ttitle = document.getElementById('title');
 var todata = document.getElementById('tdata');
 var nos = 0;
 
 document.getElementById('clslist').addEventListener('submit', ClassList);
 function ClassList(e){
     e.preventDefault();
+    // add titles
+    ttitle.innerHTML = "<h2>Dedan Kimathi University of Science and Technology</h2> <h4>Course: "+document.getElementById('ccourse').value+" Year: "+document.getElementById('cyos').value+" Semester: "+document.getElementById('csem').value+"</h4><h4>Class List</h4>"
     firestore.collection("StudentDetails").where("currentyear", "==", document.getElementById('cyear').value).where("currentsemester", "==", document.getElementById('csem').value).where("course", "==", document.getElementById('ccourse').value).where("yearofstudy", "==", document.getElementById('cyos').value)
     .get()
     .then(function(querySnapshot) {
@@ -56,4 +58,23 @@ function ClassList(e){
         console.log("Error getting documents: ", error);
     });
 
+}
+
+// printing of attendance list
+
+document.getElementById('DownloadButton').addEventListener('click', PrintPDF);
+function PrintPDF(e){
+    e.preventDefault();
+    console.log("Am clicked.. Hoping I will generate PDF");
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+    doc.fromHTML($('#ptable').html(), 15, 15, {
+        'width': 230,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save();
 }

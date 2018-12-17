@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var firestore = firebase.firestore();
 var user = firebase.auth().currentUser;
 
+var ttitles = document.getElementById('titles');
 
 var atdata = document.getElementById('attdlist');
 var nos = 0;
@@ -19,7 +20,22 @@ var nos = 0;
 document.getElementById('clsattd').addEventListener('submit', ClassAttend);
 function ClassAttend(e){
     e.preventDefault();
-    firestore.collection("StudentScanClass").where("year", "==", document.getElementById('coyear').value).where("semester", "==", document.getElementById('cosem').value).where("course", "==", document.getElementById('cocourse').value).where("yearofstudy", "==", document.getElementById('coyos').value).where("querydate", "==", document.getElementById('datepicker').value)
+    // add titles
+    ttitles.innerHTML = "<h2>Dedan Kimathi University of Science and Technology</h2> <h4>Course: "+document.getElementById('cocourse').value+" Year: "+document.getElementById('coyos').value+" Semester: "+document.getElementById('cosem').value+"</h4><h4>Attendance Sheet</h4>"
+    // query data
+    // firestore.collection("StudentScanClass").where("unitname", "==", "Project Management ")
+    // .get()
+    // .then(function(querySnapshot) {
+    //     querySnapshot.forEach(function(doc) {
+    //         // doc.data() is never undefined for query doc snapshots
+    //         console.log(doc.id, " => ", doc.data());
+    //     });
+    // })
+    // .catch(function(error) {
+    //     console.log("Error getting documents: ", error);
+    // });
+    // old query
+    firestore.collection("StudentScanClass").where("year", "==", document.getElementById('coyear').value).where("semester", "==", document.getElementById('cosem').value).where("course", "==", document.getElementById('cocourse').value).where("yearofstudy", "==", document.getElementById('coyos').value).where("querydate", "==", document.getElementById('datepicker').value).where("unitname", "==", document.getElementById('counit').value)
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
