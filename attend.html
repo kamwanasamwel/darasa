@@ -1,255 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
-<link rel="icon" type="image/png" href="./assets/img/favicon.ico">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<title>Darasa</title>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
-    
-<!-- Google Font -->
-<link shref="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,600,800" rel="stylesheet">
-    
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
-<!-- Main CSS -->
-<link href="./assets/css/main.css" rel="stylesheet"/>
-    
-<!-- Animation CSS -->
-<link href="./assets/css/vendor/aos.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Darasa</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-<!-- Firebase js -->
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <!-- Google Font -->
+    <link shref="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,600,800" rel="stylesheet">
 
-<!-- Datepicker -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
 
-<link rel="stylesheet" href="./assets/css/bootstrap-datepicker.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <!-- Main CSS -->
+    <link href="./assets/css/main.css" rel="stylesheet" />
+
+    <!-- Animation CSS -->
+    <link href="./assets/css/vendor/aos.css" rel="stylesheet" />
+
+    <!-- Firebase js -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+
+    <!-- Datepicker -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 
 
-<script type="text/javascript">
-$( function() {
-$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
-} );
-</script>
-    
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
 
-<!-- <script type="text/javascript">
+
+    <!-- <script type="text/javascript">
 $(document).ready(function() {
     $('.dateinput').datepicker({ format: "yyyy/mm/dd" });
 }); 
 </script> -->
 </head>
-    
-<body> 
-    
-    
-<!--------------------------------------
+
+<body>
+
+
+    <!--------------------------------------
 NAVBAR
 --------------------------------------->
-<nav class="topnav navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-<div class="container">
-	<a class="navbar-brand" href="#"><img src="assets/img/f.png" class="rounded" style="height:35px; width:35px;"><strong>Darasa</strong> </a>
-	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="navbar-collapse collapse" id="navbarColor02" >
-        <ul class="navbar-nav mr-auto d-flex align-items-center">
-            <li class="nav-item">
-            <a class="nav-link" href="./lecturer.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./list.html">Classlist</a>
-            </li>
-                 
-        </ul>
-        
-    </div>
-</div>
-</nav>
-<!-- End Navbar -->
-    
-    
-<!-------------------------------------
+    <nav class="topnav navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="assets/img/f.png" class="rounded" style="height:35px; width:35px;"><strong>Darasa</strong>
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./lecturer.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./list.html">Classlist</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+
+    <!-------------------------------------
 HEADER
 --------------------------------------->
-<div class="jumbotron jumbotron-lg jumbotron-fluid mb-0 pb-3 bg-primary position-relative">
-    <div class="container-fluid text-white h-100">
-        <div class="d-lg-flex align-items-center justify-content-between text-center pl-lg-5">
-            <div class="col pt-4 pb-4">
-                <h1 class="display-3">Easy, <strong>Fast</strong> & Reliable</h1>
-                <h5 class="font-weight-light mb-4">Class Attendance<strong> Solution </strong></h5>
-                <a href="#" class="btn btn-lg btn-outline-white btn-round" id="learning">Learn more</a>
-            </div>
-            <div class="col align-self-bottom align-items-right text-right h-max-300 position-relative z-index-1">
-                <img src="assets/img/demo/dashb.jpg" class="rounded img-fluid">
+    <div class="jumbotron jumbotron-lg jumbotron-fluid mb-0 pb-3 bg-primary position-relative">
+        <div class="container-fluid text-white h-100">
+            <div class="d-lg-flex align-items-center justify-content-between text-center pl-lg-5">
+                <div class="col pt-4 pb-4">
+                    <h1 class="display-3">Easy, <strong>Fast</strong> & Reliable</h1>
+                    <h5 class="font-weight-light mb-4">Class Attendance<strong> Solution </strong></h5>
+                    <a href="#" class="btn btn-lg btn-outline-white btn-round" id="learning">Learn more</a>
+                </div>
+                <div class="col align-self-bottom align-items-right text-right h-max-300 position-relative z-index-1">
+                    <img src="assets/img/demo/dashb.jpg" class="rounded img-fluid">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<svg style="-webkit-transform:rotate(-180deg); -moz-transform:rotate(-180deg); -o-transform:rotate(-180deg); transform:rotate(-180deg); margin-top: -1px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
-<path class="bg-primary" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
-</svg>
-<!--- END HEADER -->
-    
- 
-    
-<!--------------------------------------
+    <svg style="-webkit-transform:rotate(-180deg); -moz-transform:rotate(-180deg); -o-transform:rotate(-180deg); transform:rotate(-180deg); margin-top: -1px;"
+        version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewbox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
+        <path class="bg-primary" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z" />
+    </svg>
+    <!--- END HEADER -->
+
+
+
+    <!--------------------------------------
 CTA
 --------------------------------------->
-<div class="container pt-4 pb-5 mb-5" data-aos="fade-up">
-	<div class="pb-4 text-center">
-		<h2><strong>Easily <span class="text-secondary">Generate</span> a Class Attendance List </strong></h2>
-		<p class="text-muted">
-			 Simply fill in the required details and press generate. Preview the attendance list on the table below and then download or print.
-		</p>
-	</div>
-	<form id="clsattd">
-        <div class="form-group">
-            <label class="form-check-label" for="coyear">Current Year</label>
-            <select name="currentyear" class="form-control input-round" id="coyear" >
-                <option disabled selected value> -- select an option -- </option>
-                <option>2018</option>
-            </select>
+    <div class="container pt-4 pb-5 mb-5" data-aos="fade-up">
+        <div class="pb-4 text-center">
+            <h2><strong>Easily <span class="text-secondary">Generate</span> a Class Attendance List </strong></h2>
+            <p class="text-muted">
+                Simply fill in the required details and press generate. Preview the attendance list on the table below
+                and then download or print.
+            </p>
         </div>
-        <div class="form-group">
-            <label class="form-check-label" for="cosem">Current Semester</label>
-            <select name="currentsemester" class="form-control input-round" id="cosem" >
-                <option disabled selected value> -- select an option -- </option>
-                <option>1</option>
-                <option>2</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-check-label" for="cocourse">Course</label>
-            <select name="coursechoice" class="form-control input-round" id="cocourse" >
-                <option disabled selected value> -- select an option -- </option>
-                <option>Bs of Business Information Technology</option>
-            </select>
-        </div>
-        <div class="form-group">
+        <form id="clsattd">
+            <div class="form-group">
+                <label class="form-check-label" for="coyear">Current Year</label>
+                <select name="currentyear" class="form-control input-round" id="coyear">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option>2018</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label" for="cosem">Current Semester</label>
+                <select name="currentsemester" class="form-control input-round" id="cosem">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label" for="cocourse">Course</label>
+                <select name="coursechoice" class="form-control input-round" id="cocourse">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option>Bs of Business Information Technology</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label class="form-check-label" for="counit">Unit Name</label>
-                <select name="nameofunit" class="form-control input-round" id="counit" >
+                <select name="nameofunit" class="form-control input-round" id="counit">
                     <option disabled selected value> -- select an option -- </option>
                     <option>Project Management </option>
                     <option>Physics</option>
+                    <option>Systems administration</option>
                 </select>
             </div>
-        <div class="form-group">
-            <label class="form-check-label" for="coyos">Year Of Study</label>
-            <select name="yearofstudy" class="form-control input-round" id="coyos" >
-                <option disabled selected value> -- select an option -- </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-                <label class="form-check-label" for="datepicker">Date</label>
-                <input type="text" id="datepicker" class="form-control input-round" placeholder="tap to select" size="30" dateFormat="yy-mm-dd">
+            <div class="form-group">
+                <label class="form-check-label" for="coyos">Year Of Study</label>
+                <select name="yearofstudy" class="form-control input-round" id="coyos">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
             </div>
 
-        <button type="submit" class="btn btn-info btn-round btn-lg w-100">Generate</button>
-    </form>
-</div>
-<!-- End CTA -->
+            <div class="form-group">
+                <label class="form-check-label" for="datepicker">Date</label>
+                <input type="text" id="datepicker" class="form-control input-round" placeholder="tap to select" size="30"
+                    dateFormat="yy-mm-dd">
+            </div>
 
-<div id="ptable">
-    <div id="titles" class="text-center pt-3 pb-4">
-        <!-- <h2>Dedan Kimathi University of Science and Technology</h2>
+            <button type="submit" class="btn btn-info btn-round btn-lg w-100">Generate</button>
+        </form>
+    </div>
+    <!-- End CTA -->
+
+    <div id="ptable">
+        <div id="titles" class="text-center pt-3 pb-4">
+            <!-- <h2>Dedan Kimathi University of Science and Technology</h2>
         <h4>Course: BBIT Year: 3 Semester: 2</h4>
         <h4>Attendance Sheet</h4> -->
-	</div>
-    <!-- table -->
-    <table class="table" border="1">
-        <!-- <legend style="text-align:center;"><b>Dedan Kimathi University of science and Technology </b><br/> Class Attendance List</legend> -->
-        <thead class="thead-light">
-        <tr>
-            <th scope="col"> #</th>
-            <th scope="col">Reg Number</th>
-            <th scope="col">Student Name</th>
-            
-            
-        </tr>
-        </thead>
-        <tbody id="attdlist">
-        <!-- <tr > 
+        </div>
+        <!-- table -->
+        <table class="table" border="1" style="border-collapse: collapse;">
+            <!-- <legend style="text-align:center;"><b>Dedan Kimathi University of science and Technology </b><br/> Class Attendance List</legend> -->
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"> #</th>
+                    <th scope="col">Reg Number</th>
+                    <th scope="col">Student Name</th>
+
+
+                </tr>
+            </thead>
+            <tbody id="attdlist">
+                <!-- <tr > 
             <th scope="row"> 1	</th>
             <td> Mark </td>
             <td> Otto </td>
             
         </tr> -->
-        </tbody>
-    </table>
-</div>
-
-<!--------------------------------------
+            </tbody>
+        </table>
+    </div>
+    <!-- printing and download options -->
+    <div class="pb-4 text-center">
+        <button class="btn btn-info btn-round btn-lg w-40" id="DownloadButton">
+            Download
+        </button>
+        <button class="btn btn-info btn-round btn-lg w-40" id="PrintButton">
+            Print
+        </button>
+    </div>
+    <!--------------------------------------
 FOOTER
 --------------------------------------->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
-<path class="bg-black" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
-</svg>
-<footer class="bg-black pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md mr-4">
-                <i class="fas fa-copyright text-white"></i>
-                <small class="text-muted">
-                <script>document.write(new Date().getFullYear())</script>
-                 Darasa</small>
-            </div>
-            
-        </div>
-    </div>
-</footer>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewbox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
+        <path class="bg-black" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z" />
+    </svg>
+    <footer class="bg-black pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md mr-4">
+                    <i class="fas fa-copyright text-white"></i>
+                    <small class="text-muted">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        Darasa
+                    </small>
+                </div>
 
-    
-    
-<!--------------------------------------
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--------------------------------------
 JAVASCRIPTS
---------------------------------------->    
-<!-- <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script> -->
-<script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/functions.js" type="text/javascript"></script>
-<script src="./assets/js/attend.js"></script>
-    
-<!-- Animation -->
-<script src="./assets/js/vendor/aos.js" type="text/javascript"></script>
-<noscript>
-    <style>
-        *[data-aos] {
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-    </style>
-</noscript>
-<script>
-    AOS.init({
-        duration: 700
-    });
-</script>
- 
-<!-- Disable animation on less than 1200px, change value if you like -->
-<script>
-AOS.init({
-  disable: function () {
-    var maxWidth = 1200;
-    return window.innerWidth < maxWidth;
-  }
-});
-</script>
+--------------------------------------->
+    <!-- <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script> -->
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+    <script src="./assets/js/attend.js"></script>
+
+    <!-- Animation -->
+    <script src="./assets/js/vendor/aos.js" type="text/javascript"></script>
+    <noscript>
+        <style>
+            *[data-aos] {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        AOS.init({
+            duration: 700
+        });
+    </script>
+
+    <!-- Disable animation on less than 1200px, change value if you like -->
+    <script>
+        AOS.init({
+            disable: function () {
+                var maxWidth = 1200;
+                return window.innerWidth < maxWidth;
+            }
+        });
+    </script>
 
 </body>
+
 </html>
