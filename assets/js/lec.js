@@ -8,23 +8,23 @@ var config = {
   messagingSenderId: "3641612382"
 };
 firebase.initializeApp(config);
-  
+
 var firestore = firebase.firestore();
 var user = firebase.auth().currentUser;
-  // var usid;
-  // //   var usid = user.uid;
-  // //   console.log(usid);
-  // if (user != null) {
-  //   usid = user.uid;
-  //   console.log(usid);
-  // } 
+// var usid;
+// //   var usid = user.uid;
+// //   console.log(usid);
+// if (user != null) {
+//   usid = user.uid;
+//   console.log(usid);
+// } 
 
 // firebase.auth().onAuthStateChanged(function(user) {
 //   if (user) {
 //     // User is signed in.
 //     // hide login button
-    
-    
+
+
 
 
 //     console.log(user.uid);
@@ -40,11 +40,11 @@ var logl = document.getElementById('ablog');
 var attendl = document.getElementById('abattend');
 var listl = document.getElementById('ablist');
 firebase.auth().onAuthStateChanged(user => {
-  if(user) {
+  if (user) {
     // hide login button
     logl.style.visibility = "hidden";
     console.log("am a user");
-    
+
   } else {
     // hide attendance and class list navigation
     attendl.style.visibility = "hidden";

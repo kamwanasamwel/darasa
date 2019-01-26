@@ -11,7 +11,64 @@ firebase.initializeApp(config);
 
 var firestore = firebase.firestore();
 var user = firebase.auth().currentUser;
+// listing of courses array on drop down
 
+var dcourse = document.getElementById('cocourse');
+var crsRef = firestore.collection("DkutCourses").doc("dkut");
+
+crsRef.get().then(function (doc) {
+    if (doc.exists) {
+        var i;
+        var num = doc.data().size;
+
+        for (i = 1; i < 25; i++) {
+            dcourse.innerHTML += "<option>" + doc.data()[i] + "</option>";
+        }
+        // dcourse.innerHTML += "<option>"+ doc.data() +"</option>";
+        console.log("Document data:", doc.data());
+        console.log("the length is:", num);
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function (error) {
+    console.log("Error getting document:", error);
+});
+
+var uname = document.getElementById('counit');
+var lteachRef = firestore.collection("LecTeach");
+
+// listing units test one
+if (user != null) {
+    console.log("Just a simple test", user.uid);
+    firestore.collection("LecTeach").where("lecid", "==", user.uid)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                // doc.data() is never undefined for query doc snapshots
+                uname.innerHTML += "<option>" + doc.data().unitname + "</option>"
+                console.log("I contain ", doc.data());
+            });
+        })
+        .catch(function (error) {
+            console.log("Error getting documents: ", error);
+        });
+}
+
+// listing units test two
+// firestore.collection("LecTeach").where("lecid", "==", "user.uid")
+//     .get()
+//     .then(function (querySnapshot) {
+//         querySnapshot.forEach(function (doc) {
+//             // doc.data() is never undefined for query doc snapshots
+//             uname.innerHTML += "<option>" + doc.data().unitname + "</option>"
+//             console.log(doc.id, " => ", doc.data());
+//         });
+//     })
+//     .catch(function (error) {
+//         console.log("Error getting documents: ", error);
+//     });
+// end of test two
 var ttitles = document.getElementById('titles');
 
 var atdata = document.getElementById('attdlist');
